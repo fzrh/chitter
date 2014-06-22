@@ -21,4 +21,13 @@ class Maker
 
   validates_confirmation_of :password, :message => 'Sorry, your passwords do not match'
 
+  def self.authenticate(username, password)
+    maker = first(:username => username)
+    if maker && BCrypt::Password.new(maker.password_digest) == password
+      maker
+    else
+      nil
+    end
+  end
+
 end

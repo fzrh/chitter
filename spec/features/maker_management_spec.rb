@@ -37,3 +37,32 @@ feature 'Maker signs up' do
   end
 
 end
+
+feature 'Maker signs in' do
+
+  before(:each) do
+    Maker.create(name: 'Stephen Lloyd', username: 'Stephen_lloyd', email: 'stephen@makers.com' , password: 's3cr3t', password_confirmation: 's3cr3t')
+  end
+
+  scenario 'with correct credentials' do
+    visit '/'
+    expect(page).not_to have_content 'Hello Stephen Lloyd'
+    sign_in('Stephen_lloyd', 's3cr3t')
+    expect(page).to have_content 'Hello Stephen Lloyd'
+  end
+
+  scenario 'with incorrect credentials' do
+    visit '/'
+    expect(page).not_to have_content 'Hello Stephen Lloyd'
+    sign_in('Stephen_lloyd', 'secret')
+    expect(page).not_to have_content 'Hello Stephen Lloyd'
+  end
+
+  def sign_in(username, password)
+    visit '/sessions/new'
+    fill_in :username, with: username
+    fill_in :password, with: password
+    click_button 'Sign in'
+  end
+
+end
