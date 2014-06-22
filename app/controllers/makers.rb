@@ -9,7 +9,7 @@ post '/makers' do
   	 session[:maker_id] = @maker.id
   	 redirect to('/')
   else
-  	 flash[:notice] = "Sorry, your passwords do not match"
+  	 flash.now[:errors] = @maker.errors.full_messages
   	 erb :"makers/signup"
   end
 end
