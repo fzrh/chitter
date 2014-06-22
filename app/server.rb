@@ -12,6 +12,7 @@ require_relative 'helpers/application'
 require_relative 'controllers/application'
 require_relative 'controllers/makers'
 require_relative 'controllers/sessions'
+require_relative 'controllers/peeps'
 
 enable :sessions
 set :session_secret, 'super secret'
