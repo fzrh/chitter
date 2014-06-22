@@ -1,4 +1,7 @@
 require 'spec_helper'
+require_relative 'helpers/session'
+
+include SessionHelpers
 
 feature 'Maker signs up' do
 	
@@ -26,16 +29,6 @@ feature 'Maker signs up' do
     expect(page).to have_content 'This username is already in use'
   end
 
-  def sign_up(name = "Stephen Lloyd", username = "Stephen_lloyd", email = "stephen@makers.com", password = "s3cr3t", password_confirmation = "s3cr3t")
-  	visit '/makers/signup'
-  	fill_in :name, with: name
-  	fill_in :username, with: username
-  	fill_in :email, with: email
-  	fill_in :password, with: password
-  	fill_in :password_confirmation, with: password_confirmation
-  	click_button "Sign up"
-  end
-
 end
 
 feature 'Maker signs in' do
@@ -58,11 +51,19 @@ feature 'Maker signs in' do
     expect(page).not_to have_content 'Hello Stephen Lloyd'
   end
 
-  def sign_in(username, password)
-    visit '/sessions/new'
-    fill_in :username, with: username
-    fill_in :password, with: password
-    click_button 'Sign in'
+end
+
+feature 'Maker signs out' do
+
+  before(:each) do
+  	Maker.create(name: 'Stephen Lloyd', username: 'Stephen_lloyd', email: 'stephen@makers.com', password: 's3cr3t', password_confirmation: 's3cr3t')
+  end
+
+  scenario 'while being signed in' do
+    sign_in('Stephen_lloyd', 's3cr3t')
+    click_button 'Sign out'
+    expect(page).to have_content 'See you again soon!'
+    expect(page).not_to have_content 'Hello Stephen Lloyd'
   end
 
 end
