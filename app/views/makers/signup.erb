@@ -2,8 +2,8 @@
 
 <form action="/makers" method="post">
   Name: <input name="name" type="text"><br/>
-  Username: <input name="username" type="text"><br/>
-  Email: <input name="email" type="text"><br/>
+  Username: <input name="username" type="text" value="<%= @maker.username %>"><br/>
+  Email: <input name="email" type="text" value="<%= @maker.email %>"><br/>
   Password: <input name="password" type="password"><br/>
   Password Confirm: <input name="password_confirmation" type="password"><br/>
   <input type="submit" value="Sign up">
