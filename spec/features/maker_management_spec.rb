@@ -20,6 +20,12 @@ feature 'Maker signs up' do
     expect(page).to have_content 'This email has already been registered'
   end
 
+  scenario 'with a username that is in use' do
+    expect{ sign_up }.to change(Maker, :count).by 1
+    expect{ sign_up }.to change(Maker, :count).by 0
+    expect(page).to have_content 'This username is already in use'
+  end
+
   def sign_up(name = "Stephen Lloyd", username = "Stephen_lloyd", email = "stephen@makers.com", password = "s3cr3t", password_confirmation = "s3cr3t")
   	visit '/makers/signup'
   	fill_in :name, with: name
