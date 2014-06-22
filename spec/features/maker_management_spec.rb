@@ -8,7 +8,11 @@ feature 'Maker signs up' do
     expect(Maker.first.name).to eq 'Stephen Lloyd'
   end
 
-  def sign_up(name = "Stephen Lloyd", username = "Stephen_lloyd", email = "stephen@makers.com", password ="s3cr3t")
+  scenario 'with a password that do not match' do
+    expect{ sign_up('Stephen Lloyd', 'Stephen_lloyd','stephen@makers.com', 's3cr3t', 'secret') }.to change{Maker.count}.by(0)
+  end
+
+  def sign_up(name = "Stephen Lloyd", username = "Stephen_lloyd", email = "stephen@makers.com", password = "s3cr3t", password_confirmation = "s3cr3t")
   	visit '/makers/signup'
   	expect(page.status_code).to eq 200
   	expect(page.status_code).to eq 200
@@ -16,6 +20,7 @@ feature 'Maker signs up' do
   	fill_in :username, with: username
   	fill_in :email, with: email
   	fill_in :password, with: password
+  	fill_in :password_confirmation, with: password_confirmation
   	click_button "Sign up"
   end
 
