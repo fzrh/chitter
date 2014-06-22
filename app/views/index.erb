@@ -1,5 +1,18 @@
-<ul>
-  <% @peeps.each do |peep| %>
-    <li><%= peep.message %></li>
-  <% end %>
-</ul>
+<% if current_user %>
+
+  <form method='post' action='/peeps'>
+    <h1>Compose new Peep</h1>
+    <textarea name='message' placeholder='Compose new Peep...'></textarea>
+    <input name='maker_id' type='hidden' value='<%= @current_user.id %>'>
+    <button type='submit'>Peep</button>
+  </form>
+<% else %>
+  <ul>
+    <% @peeps.each do |peep| %>
+      <li><%= peep.message %></li>
+    <% end %>
+  </ul>
+
+  Have an account? <a href='/sessions/new'>Sign in</a>
+  New to Chitter? <a href='/makers/signup'>Sign up now >></a>
+<% end %>
