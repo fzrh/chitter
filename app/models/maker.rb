@@ -8,8 +8,9 @@ class Maker
   property :name, String
   property :username, String, :unique => true, :message => 'This username is already in use'
   property :email, String, :unique => true, :message => 'This email has already been registered'
-
   property :password_digest, Text
+
+  has n, :peeps
 
   def password=(password)
   	@password = password
