@@ -2,7 +2,7 @@
 
   <form method='post' action='/peeps'>
     <h1>Compose new Peep</h1>
-    <textarea name='text' placeholder='Compose new Peep...'></textarea>
+    <textarea name='message' placeholder='Compose new Peep...'></textarea>
     <input name='maker_id' type='hidden' value='<%= @current_user.id %>'>
     <button type='submit'>Peep</button>
   </form>
