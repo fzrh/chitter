@@ -8,4 +8,10 @@
   </form>
 <% else %>
   You need to be signed-in to peep.
+  <form method='post' action='/sessions'>
+  Username: <input name='username' type='text'><br/>
+  Password: <input name='password' type='password'>
+  <input type='submit' value='Sign in'>
+  </form>
+  New to Chitter? <a href='/makers/signup/'>Sign up now >></a>
 <% end %>
