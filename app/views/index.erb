@@ -7,28 +7,21 @@
     <button type='submit'>Peep</button>
   </form>
 
-  <ul>
-    <% @peeps.each do |peep| %>
-      <li>
-      <%= Maker.get(peep.maker_id).username %> on <%= peep.created_on %> peeped:<br/>
-      <%= peep.message %>
-      </li>
-    <% end %>
-  </ul>
+  <% @peeps.reverse_each do |peep| %>
+    <p><em><%= peep.created_at %></em> <strong><%= peep.maker.username %></strong> peeped:<br/>
+    <h4><%= peep.message %></h4></p>
+  <% end %>
 
 <% else %>
-<h1>Welcome to Chitter.</h1>
 
-What's happening on Chitter:
-  <ul>
-    <% @peeps.each do |peep| %>
-      <li>
-      <%= Maker.get(peep.maker_id).username %> on <%= peep.created_on %> peeped:<br/>
-      <%= peep.message %>
-      </li>
-    <% end %>
-  </ul>
+  <h1>Welcome to Chitter.</h1><br/><br/>
+  <h3>What's happening on Chitter:</h3><br/>
 
+  <% @peeps.reverse_each do |peep| %>
+    <p><em><%= peep.created_at %></em> <strong><%= peep.maker.username %></strong> peeped:<br/>
+    <h4><%= peep.message %></h4></p>
+  <% end %>
+  
   Have an account? <a href='/sessions/new'>Sign in</a> | 
   New to Chitter? <a href='/makers/signup'>Sign up now</a>
 <% end %>
