@@ -10,7 +10,7 @@
   <ul>
     <% @peeps.each do |peep| %>
       <li>
-      <%= @current_user.username %> on <%= peep.created_on %> peeped:<br/>
+      <%= Maker.get(peep.maker_id).username %> on <%= peep.created_on %> peeped:<br/>
       <%= peep.message %>
       </li>
     <% end %>
@@ -21,7 +21,7 @@ What's happening on Chitter:
   <ul>
     <% @peeps.each do |peep| %>
       <li>
-      <%= peep.maker_id %> on <%= peep.created_on %> peeped:<br/>
+      <%= Maker.get(peep.maker_id).username %> on <%= peep.created_on %> peeped:<br/>
       <%= peep.message %>
       </li>
     <% end %>
