@@ -1,8 +1,8 @@
 <% if current_user %>
 
   <form method='post' action='/peeps'>
-    <h1>Compose new Peep</h1>
-    <textarea name='message' placeholder='Compose new Peep...'></textarea>
+    <h3>Compose new Peep</h3>
+    <textarea name='message' rows="5" cols="75" placeholder='Compose new Peep...'></textarea><br/>
     <input name='maker_id' type='hidden' value='<%= @current_user.id %>'>
     <button type='submit'>Peep</button>
   </form>
