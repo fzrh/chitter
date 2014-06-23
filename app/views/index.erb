@@ -6,7 +6,15 @@
     <input name='maker_id' type='hidden' value='<%= @current_user.id %>'>
     <button type='submit'>Peep</button>
   </form>
+
+  <ul>
+    <% @peeps.each do |peep| %>
+      <li><%= peep.message %></li>
+    <% end %>
+  </ul>
+
 <% else %>
+What's happening on Chitter:
   <ul>
     <% @peeps.each do |peep| %>
       <li><%= peep.message %></li>
@@ -14,5 +22,5 @@
   </ul>
 
   Have an account? <a href='/sessions/new'>Sign in</a>
-  New to Chitter? <a href='/makers/signup'>Sign up now >></a>
+  New to Chitter? <a href='/makers/signup'>Sign up now</a>
 <% end %>

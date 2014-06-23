@@ -9,9 +9,11 @@
 <% else %>
   You need to be signed-in to peep.
   <form method='post' action='/sessions'>
-  Username: <input name='username' type='text'><br/>
-  Password: <input name='password' type='password'>
+  Username:<br/>
+  <input name='username' type='text' size='50'><br/>
+  Password:<br/> 
+  <input name='password' type='password' size='50'><br/>
   <input type='submit' value='Sign in'>
   </form>
-  New to Chitter? <a href='/makers/signup/'>Sign up now >></a>
+  New to Chitter? <a href='/makers/signup/'>Sign up now</a>
 <% end %>

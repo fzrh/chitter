@@ -1,10 +1,15 @@
 <h1>Sign up to Chitter</h1>
 
 <form action="/makers" method="post">
-  Name: <input name="name" type="text"><br/>
-  Username: <input name="username" type="text" value="<%= @maker.username %>"><br/>
-  Email: <input name="email" type="text" value="<%= @maker.email %>"><br/>
-  Password: <input name="password" type="password"><br/>
-  Password Confirm: <input name="password_confirmation" type="password"><br/>
+  Name<br/>
+  <input name="name" type="text" size='50'><br/>
+  Username<br/>
+  <input name="username" type="text" size='50' value="<%= @maker.username %>"><br/>
+  Email<br/>
+  <input name="email" type="text" size='50' value="<%= @maker.email %>"><br/>
+  Password<br/>
+  <input name="password" type="password" size='50'><br/>
+  Password Confirmation<br/>
+  <input name="password_confirmation" type="password" size='50'><br/>
   <input type="submit" value="Sign up">
 </form>
