@@ -17,6 +17,8 @@
   </ul>
 
 <% else %>
+<h1>Welcome to Chitter.</h1>
+
 What's happening on Chitter:
   <ul>
     <% @peeps.each do |peep| %>
@@ -27,6 +29,6 @@ What's happening on Chitter:
     <% end %>
   </ul>
 
-  Have an account? <a href='/sessions/new'>Sign in</a>
+  Have an account? <a href='/sessions/new'>Sign in</a> | 
   New to Chitter? <a href='/makers/signup'>Sign up now</a>
 <% end %>
