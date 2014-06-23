@@ -20,7 +20,7 @@ feature 'Maker signs up' do
   scenario 'with an email that is already registered' do
     expect{ sign_up }.to change(Maker, :count).by 1
     expect{ sign_up }.to change(Maker, :count).by 0
-    expect(page).to have_content 'This email has already been registered'
+    expect(page).to have_content 'We already have that email'
   end
 
   scenario 'with a username that is in use' do

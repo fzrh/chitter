@@ -7,8 +7,9 @@ class Maker
 
   property :id, Serial
   property :name, String, :required => true
-  property :username, String, :required => true, :unique => true, :message => 'This username is already in use'
-  property :email, String, :required => true, :unique => true, :message => 'This email has already been registered'
+  property :username, String, :required => true, :unique => true, :messages => { :is_unique => "This username is already in use" }
+  property :email, String, :required => true, :unique => true, :format => :email_address, :messages => { :presence  => "We need your email address", :is_unique => "We already have that email", :format => "Doesn't look like an email address to me ..." }
+  #property :email, String, :required => true, :unique => true, :format => :email_address
   property :password_digest, Text
 
   has n, :peeps
