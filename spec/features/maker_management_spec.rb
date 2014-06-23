@@ -29,6 +29,12 @@ feature 'Maker signs up' do
     expect(page).to have_content 'This username is already in use'
   end
 
+  scenario 'with empty passwords' do
+    expect{ sign_up('Stephen Lloyd', 'Stephen_lloyd', 'stephen@makers.com','','')}.to change{Maker.count}.by(0)
+    expect(current_path).to eq '/makers'
+    expect(page).to have_content 'Password must be at least 5 characters long'
+  end
+
 end
 
 feature 'Maker signs in' do
