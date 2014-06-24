@@ -8,7 +8,6 @@ gem 'dm-postgres-adapter', '1.2.0'
 gem 'bcrypt-ruby', '3.1.5'
 gem 'rack-flash3', '1.0.5'
 gem 'sinatra-partial', '0.4.0'
-gem 'dm-timestamps', '1.2.0'
 
 group :development, :test do
 	gem 'rspec'

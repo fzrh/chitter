@@ -8,18 +8,16 @@
   </form>
 
   <% @peeps.reverse_each do |peep| %>
-    <p><em><%= peep.created_at %></em> <strong><%= peep.maker.username %></strong> peeped:<br/>
+    <p><em><%= pretty_date(peep.created_at) %></em> <strong><%= peep.maker.username %></strong> peeped:<br/>
     <h4><%= peep.message %></h4><br/>
-    <a href='/peeps/new'>reply</a>
+    <a href='/peeps/reply'>reply to peep</a>
     </p>
-
   <% end %>
 
 <% else %>
 
-  <h1>Welcome to Chitter.</h1><br/><br/>
+  <h1>Welcome to Chitter.</h1><br/>
   <h3>What's happening on Chitter:</h3><br/>
-
   <% @peeps.reverse_each do |peep| %>
     <p><em><%= peep.created_at %></em> <strong><%= peep.maker.username %></strong> peeped:<br/>
     <h4><%= peep.message %></h4></p>

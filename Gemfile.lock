@@ -111,7 +111,6 @@ DEPENDENCIES
   data_mapper (= 1.2.0)
   database_cleaner
   dm-postgres-adapter (= 1.2.0)
-  dm-timestamps (= 1.2.0)
   launchy
   rack-flash3 (= 1.0.5)
   rspec
