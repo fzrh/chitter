@@ -11,25 +11,25 @@ feature 'Maker signs up' do
     expect(Maker.first.name).to eq 'Stephen Lloyd'
   end
 
-  scenario 'with a password that do not match' do
+  scenario 'not with a password that do not match' do
     expect{ sign_up('Stephen Lloyd', 'Stephen_lloyd','stephen@makers.com', 's3cr3t', 'secret') }.to change{Maker.count}.by(0)
     expect(current_path).to eq '/makers'
     expect(page).to have_content 'Sorry, your passwords do not match'
   end
 
-  scenario 'with an email that is already registered' do
+  scenario 'not with an email that is already registered' do
     expect{ sign_up }.to change(Maker, :count).by 1
     expect{ sign_up }.to change(Maker, :count).by 0
     expect(page).to have_content 'We already have that email'
   end
 
-  scenario 'with a username that is in use' do
+  scenario 'not with a username that is in use' do
     expect{ sign_up }.to change(Maker, :count).by 1
     expect{ sign_up }.to change(Maker, :count).by 0
     expect(page).to have_content 'This username is already in use'
   end
 
-  scenario 'with empty forms' do
+  scenario 'not with empty forms' do
     expect{ sign_up('', '', '','','')}.to change{Maker.count}.by(0)
     expect(current_path).to eq '/makers'
     expect(page).to have_content 'Name must not be blank'
@@ -53,7 +53,7 @@ feature 'Maker signs in' do
     expect(page).to have_content 'Hello Stephen Lloyd'
   end
 
-  scenario 'with incorrect credentials' do
+  scenario 'not with incorrect credentials' do
     visit '/'
     expect(page).not_to have_content 'Hello Stephen Lloyd'
     sign_in('Stephen_lloyd', 'secret')

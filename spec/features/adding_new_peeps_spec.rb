@@ -25,7 +25,7 @@ feature 'Maker can peep' do
     expect(peep.message).to eq 'Hello Chitters!'
   end
 
-  scenario 'with empty peep form' do
+  scenario 'not with empty peep form' do
     expect(Peep.count).to eq 0
     sign_in('Stephen_lloyd', 's3cr3t')
     add_peep('', @maker_id)
