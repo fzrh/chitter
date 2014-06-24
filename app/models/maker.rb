@@ -11,7 +11,7 @@ class Maker
   #property :email, String, :required => true, :unique => true, :format => :email_address
   property :password_digest, Text
 
-  has n, :peeps
+  has n, :peeps, :replies
 
   def password=(password)
   	@password = password
