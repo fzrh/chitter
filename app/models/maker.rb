@@ -1,5 +1,4 @@
 require 'bcrypt'
-require 'dm-validations'
 
 class Maker
 
