@@ -1,5 +1,8 @@
 require 'spec_helper'
 require_relative 'helpers/session'
+require_relative 'helpers/peep_helper'
+
+include PeepHelper
 
 feature 'Maker can peep' do
 	
@@ -29,12 +32,6 @@ feature 'Maker can peep' do
     expect(Peep.count).to eq 0
     expect(current_path).to eq '/peeps'
     expect(page).to have_content 'You did not peep anything'
-  end
-
-  def add_peep(message, maker_id)
-    visit '/peeps/new'
-    fill_in 'message' , with: message
-    click_button 'Peep'
   end
 
 end
