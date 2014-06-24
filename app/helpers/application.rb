@@ -5,7 +5,7 @@ helpers do
   end
 
   def pretty_date(time)
-   time.strftime("%d %b %Y")
+   time.strftime("%d.%m.%y at %H:%M")
   end
 
 end
