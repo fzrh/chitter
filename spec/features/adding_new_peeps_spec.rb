@@ -22,6 +22,15 @@ feature 'Maker can peep' do
     expect(peep.message).to eq 'Hello Chitters!'
   end
 
+  scenario 'with empty peep form' do
+    expect(Peep.count).to eq 0
+    sign_in('Stephen_lloyd', 's3cr3t')
+    add_peep('', @maker_id)
+    expect(Peep.count).to eq 0
+    expect(current_path).to eq '/peeps'
+    expect(page).to have_content 'You did not peep anything'
+  end
+
   def add_peep(message, maker_id)
     visit '/peeps/new'
     fill_in 'message' , with: message

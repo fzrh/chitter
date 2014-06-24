@@ -9,7 +9,10 @@
 
   <% @peeps.reverse_each do |peep| %>
     <p><em><%= peep.created_at %></em> <strong><%= peep.maker.username %></strong> peeped:<br/>
-    <h4><%= peep.message %></h4></p>
+    <h4><%= peep.message %></h4><br/>
+    <a href='/peeps/new'>reply</a>
+    </p>
+
   <% end %>
 
 <% else %>

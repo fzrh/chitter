@@ -9,6 +9,6 @@ class Peep
 	property :id, 			Serial
 	property :created_at, 	Time
 	property :created_on, 	Date
-	property :message, 		Text
+	property :message, 		Text, :required => true, :message => 'You did not peep anything' 
 
 end
