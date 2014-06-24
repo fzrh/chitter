@@ -106,15 +106,15 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bcrypt-ruby
+  bcrypt-ruby (= 3.1.5)
   capybara
-  data_mapper
+  data_mapper (= 1.2.0)
   database_cleaner
-  dm-postgres-adapter
-  dm-timestamps
-  dm-validations
+  dm-postgres-adapter (= 1.2.0)
+  dm-timestamps (= 1.2.0)
+  dm-validations (= 1.2.0)
   launchy
-  rack-flash3
+  rack-flash3 (= 1.0.5)
   rspec
-  sinatra
-  sinatra-partial
+  sinatra (= 1.4.5)
+  sinatra-partial (= 0.4.0)
